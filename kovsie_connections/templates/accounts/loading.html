@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    {% load static %}
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Background gradient similar to Tinder's */
+        body {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .text-white {
+            color: #ffffff;
+        }
+        .loading-logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <!-- Logo Placeholder -->
+        <img src="{% static 'admin/img/ufsheaderlogo.svg' %}" alt="Kovsie Connections Logo" class="loading-logo">
+        <!-- Spinner with Inline Styles Only -->
+        <div class="loading-spinner"></div>
+        <!-- Loading Text -->
+        <p class="text-white text-xl font-semibold mt-6">Loading, please wait...</p>
+    </div>
+
+    <script>
+        // JavaScript to redirect after a few seconds
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                window.location.href = "/create_account/";
+            }, 3000); // 3 seconds delay
+        });
+    </script>
+</body>
+</html>
